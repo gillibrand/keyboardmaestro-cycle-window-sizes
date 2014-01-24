@@ -5,7 +5,12 @@ This [Keyboard Maestro](http://www.keyboardmaestro.com/main/) library includes m
 
 ![Use one shortcut to cycle through several sizes.](imac-sizes.png)
 
+Download
+==================
 
+If you directly [download the library](https://github.com/gillibrand/keyboardmaestro-cycle-window-sizes/raw/master/Cycle%20Window%20Sizes.kmlibrary) it will treated as a text file. Just download it with the `.kmlibrary` extension (not `.txt`) to make it work.
+
+Or, [download the zip](https://github.com/gillibrand/keyboardmaestro-cycle-window-sizes/archive/master.zip) and extract the library from that.
 
 ## Keyboard Shortcuts
 
