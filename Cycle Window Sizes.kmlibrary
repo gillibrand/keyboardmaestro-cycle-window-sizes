@@ -5,15 +5,15 @@
 	<key>Author</key>
 	<string>Jay Gillibrand</string>
 	<key>AuthorURL</key>
-	<string></string>
+	<string>https://github.com/gillibrand/keyboardmaestro-cycle-window-sizes</string>
 	<key>CanDragToMacroGroup</key>
 	<true/>
 	<key>Category1</key>
-	<string>iTunes Control</string>
-	<key>Category2</key>
 	<string>Windows</string>
+	<key>Category2</key>
+	<string>Interface Control</string>
 	<key>Description</key>
-	<string>This is a test.</string>
+	<string>Macros to move the front most window to the left, center, or right of the screen. Instead of using a single size for each position, each macro will cycle between different window sizes when its keyboard shortcut is repeated.</string>
 	<key>Items</key>
 	<array>
 		<dict>
@@ -32,13 +32,39 @@
 							<key>IsActive</key>
 							<true/>
 							<key>IsDisclosed</key>
+							<false/>
+							<key>MacroActionType</key>
+							<string>Comment</string>
+							<key>Text</key>
+							<string>This macro determines the best window size to use. It's not triggered directly; it's used by the other Left, Right, and Center macros.
+
+The sizes to rotate windows through can be set in the WinSnapSizes variable below. Separate any number of sizes with commas. Each size is a percentage of the main screen size as a decimal (i.e., 100% = 1, 50% = .5).</string>
+							<key>Title</key>
+							<string>README</string>
+						</dict>
+						<dict>
+							<key>IsActive</key>
+							<true/>
+							<key>IsDisclosed</key>
 							<true/>
 							<key>MacroActionType</key>
 							<string>SetVariableToText</string>
 							<key>Text</key>
-							<string>.5, .33, .25</string>
+							<string>.66, .5, .33</string>
 							<key>Variable</key>
 							<string>WinSnapSizes</string>
+						</dict>
+						<dict>
+							<key>IsActive</key>
+							<true/>
+							<key>IsDisclosed</key>
+							<false/>
+							<key>MacroActionType</key>
+							<string>SetVariableToText</string>
+							<key>Text</key>
+							<string>5</string>
+							<key>Variable</key>
+							<string>WinSnapGutterSize</string>
 						</dict>
 						<dict>
 							<key>Conditions</key>
@@ -61,6 +87,18 @@
 							</dict>
 							<key>ElseActions</key>
 							<array>
+								<dict>
+									<key>IsActive</key>
+									<true/>
+									<key>IsDisclosed</key>
+									<false/>
+									<key>MacroActionType</key>
+									<string>Comment</string>
+									<key>Text</key>
+									<string>All this script does is find the modulo of the next size index, i.e., (WinSnapSizeIndex + 1) % number_of_sizes. I couldn't find a native Keyboard Maestro way to do this.</string>
+									<key>Title</key>
+									<string>Why a shell script?</string>
+								</dict>
 								<dict>
 									<key>DisplayKind</key>
 									<string>Variable</string>
@@ -143,7 +181,7 @@ except:
 							<key>StopOnFailure</key>
 							<false/>
 							<key>Text</key>
-							<string>SCREEN(0, width) * WinSnapSizes[WinSnapSizeIndex + 1]</string>
+							<string>(SCREEN(0, width) * WinSnapSizes[WinSnapSizeIndex + 1]) - WinSnapGutterSize</string>
 							<key>UseFormat</key>
 							<false/>
 							<key>Variable</key>
@@ -153,9 +191,9 @@ except:
 					<key>IsActive</key>
 					<true/>
 					<key>ModificationDate</key>
-					<real>412185289.92576098</real>
+					<real>412239470.47191</real>
 					<key>Name</key>
-					<string>Window Snap: _Get WinSnapWidth</string>
+					<string>_Get WinSnapWidth</string>
 					<key>Triggers</key>
 					<array/>
 					<key>UID</key>
@@ -163,7 +201,7 @@ except:
 				</dict>
 			</array>
 			<key>Name</key>
-			<string>Window Snap</string>
+			<string>Cycle WIndow Sizes</string>
 			<key>UID</key>
 			<string>70A012E8-A6DF-4C11-9F1D-78E840F221D3</string>
 		</dict>
@@ -235,20 +273,20 @@ except:
 					<key>IsActive</key>
 					<true/>
 					<key>ModificationDate</key>
-					<real>412185329.42823601</real>
+					<real>412239503.60657501</real>
 					<key>Name</key>
-					<string>Window Snap: Left</string>
+					<string>Move to Left Side</string>
 					<key>Triggers</key>
 					<array>
 						<dict>
 							<key>FireType</key>
 							<string>Pressed</string>
 							<key>KeyCode</key>
-							<integer>86</integer>
+							<integer>123</integer>
 							<key>MacroTriggerType</key>
 							<string>HotKey</string>
 							<key>Modifiers</key>
-							<integer>4096</integer>
+							<integer>6400</integer>
 						</dict>
 					</array>
 					<key>UID</key>
@@ -256,100 +294,7 @@ except:
 				</dict>
 			</array>
 			<key>Name</key>
-			<string>Window Snap</string>
-			<key>UID</key>
-			<string>70A012E8-A6DF-4C11-9F1D-78E840F221D3</string>
-		</dict>
-		<dict>
-			<key>Activate</key>
-			<string>Normal</string>
-			<key>CustomIconData</key>
-			<string>KMEP-WakeTrigger</string>
-			<key>IsActive</key>
-			<true/>
-			<key>Macros</key>
-			<array>
-				<dict>
-					<key>Actions</key>
-					<array>
-						<dict>
-							<key>IsActive</key>
-							<true/>
-							<key>IsDisclosed</key>
-							<false/>
-							<key>MacroActionType</key>
-							<string>SetVariableToText</string>
-							<key>Text</key>
-							<string>center</string>
-							<key>Variable</key>
-							<string>WinSnapPos</string>
-						</dict>
-						<dict>
-							<key>Count</key>
-							<integer>1</integer>
-							<key>IsActive</key>
-							<true/>
-							<key>IsDisclosed</key>
-							<true/>
-							<key>MacroActionType</key>
-							<string>ExecuteMacro</string>
-							<key>MacroUID</key>
-							<string>40749582-2A40-4F75-86AD-4220DDC9A7D8</string>
-							<key>TimeOutAbortsMacro</key>
-							<true/>
-						</dict>
-						<dict>
-							<key>Action</key>
-							<string>MoveAndResize</string>
-							<key>HeightExpression</key>
-							<string>SCREEN(Main,Height)</string>
-							<key>HorizontalExpression</key>
-							<string>(SCREEN(main,width) - WinSnapWidth) / 2</string>
-							<key>IsActive</key>
-							<true/>
-							<key>IsDisclosed</key>
-							<true/>
-							<key>MacroActionType</key>
-							<string>ManipulateWindow</string>
-							<key>Targeting</key>
-							<string>FrontWindow</string>
-							<key>TargetingType</key>
-							<string>Front</string>
-							<key>VerticalExpression</key>
-							<string>SCREEN(Main,Top)+22</string>
-							<key>WidthExpression</key>
-							<string>WinSnapWidth</string>
-							<key>WindowIndexExpression</key>
-							<string>2</string>
-							<key>WindowName</key>
-							<string></string>
-						</dict>
-					</array>
-					<key>IsActive</key>
-					<true/>
-					<key>ModificationDate</key>
-					<real>412185332.736224</real>
-					<key>Name</key>
-					<string>Window Snap: Center</string>
-					<key>Triggers</key>
-					<array>
-						<dict>
-							<key>FireType</key>
-							<string>Pressed</string>
-							<key>KeyCode</key>
-							<integer>87</integer>
-							<key>MacroTriggerType</key>
-							<string>HotKey</string>
-							<key>Modifiers</key>
-							<integer>4096</integer>
-						</dict>
-					</array>
-					<key>UID</key>
-					<string>D03ACEE6-D1CF-4DF2-B4D3-B33889DDD936</string>
-				</dict>
-			</array>
-			<key>Name</key>
-			<string>Window Snap</string>
+			<string>Cycle WIndow Sizes</string>
 			<key>UID</key>
 			<string>70A012E8-A6DF-4C11-9F1D-78E840F221D3</string>
 		</dict>
@@ -421,20 +366,20 @@ except:
 					<key>IsActive</key>
 					<true/>
 					<key>ModificationDate</key>
-					<real>412185335.53579801</real>
+					<real>412239499.03847897</real>
 					<key>Name</key>
-					<string>Window Snap: Right</string>
+					<string>Move to Right Side</string>
 					<key>Triggers</key>
 					<array>
 						<dict>
 							<key>FireType</key>
 							<string>Pressed</string>
 							<key>KeyCode</key>
-							<integer>88</integer>
+							<integer>124</integer>
 							<key>MacroTriggerType</key>
 							<string>HotKey</string>
 							<key>Modifiers</key>
-							<integer>4096</integer>
+							<integer>6400</integer>
 						</dict>
 					</array>
 					<key>UID</key>
@@ -442,12 +387,105 @@ except:
 				</dict>
 			</array>
 			<key>Name</key>
-			<string>Window Snap</string>
+			<string>Cycle WIndow Sizes</string>
+			<key>UID</key>
+			<string>70A012E8-A6DF-4C11-9F1D-78E840F221D3</string>
+		</dict>
+		<dict>
+			<key>Activate</key>
+			<string>Normal</string>
+			<key>CustomIconData</key>
+			<string>KMEP-WakeTrigger</string>
+			<key>IsActive</key>
+			<true/>
+			<key>Macros</key>
+			<array>
+				<dict>
+					<key>Actions</key>
+					<array>
+						<dict>
+							<key>IsActive</key>
+							<true/>
+							<key>IsDisclosed</key>
+							<false/>
+							<key>MacroActionType</key>
+							<string>SetVariableToText</string>
+							<key>Text</key>
+							<string>center</string>
+							<key>Variable</key>
+							<string>WinSnapPos</string>
+						</dict>
+						<dict>
+							<key>Count</key>
+							<integer>1</integer>
+							<key>IsActive</key>
+							<true/>
+							<key>IsDisclosed</key>
+							<true/>
+							<key>MacroActionType</key>
+							<string>ExecuteMacro</string>
+							<key>MacroUID</key>
+							<string>40749582-2A40-4F75-86AD-4220DDC9A7D8</string>
+							<key>TimeOutAbortsMacro</key>
+							<true/>
+						</dict>
+						<dict>
+							<key>Action</key>
+							<string>MoveAndResize</string>
+							<key>HeightExpression</key>
+							<string>SCREEN(Main,Height)</string>
+							<key>HorizontalExpression</key>
+							<string>(SCREEN(main,width) - WinSnapWidth) / 2</string>
+							<key>IsActive</key>
+							<true/>
+							<key>IsDisclosed</key>
+							<true/>
+							<key>MacroActionType</key>
+							<string>ManipulateWindow</string>
+							<key>Targeting</key>
+							<string>FrontWindow</string>
+							<key>TargetingType</key>
+							<string>Front</string>
+							<key>VerticalExpression</key>
+							<string>SCREEN(Main,Top)+22</string>
+							<key>WidthExpression</key>
+							<string>WinSnapWidth</string>
+							<key>WindowIndexExpression</key>
+							<string>2</string>
+							<key>WindowName</key>
+							<string></string>
+						</dict>
+					</array>
+					<key>IsActive</key>
+					<true/>
+					<key>ModificationDate</key>
+					<real>412239479.81572098</real>
+					<key>Name</key>
+					<string>Move to Center</string>
+					<key>Triggers</key>
+					<array>
+						<dict>
+							<key>FireType</key>
+							<string>Pressed</string>
+							<key>KeyCode</key>
+							<integer>125</integer>
+							<key>MacroTriggerType</key>
+							<string>HotKey</string>
+							<key>Modifiers</key>
+							<integer>6400</integer>
+						</dict>
+					</array>
+					<key>UID</key>
+					<string>D03ACEE6-D1CF-4DF2-B4D3-B33889DDD936</string>
+				</dict>
+			</array>
+			<key>Name</key>
+			<string>Cycle WIndow Sizes</string>
 			<key>UID</key>
 			<string>70A012E8-A6DF-4C11-9F1D-78E840F221D3</string>
 		</dict>
 	</array>
 	<key>UID</key>
-	<string>99304820-5886-4C40-91D1-8E9EDEF38B99</string>
+	<string>E1628200-30AC-42BE-9396-9001A340269B</string>
 </dict>
 </plist>
