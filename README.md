@@ -14,7 +14,7 @@ Or, [download the zip](https://github.com/gillibrand/keyboardmaestro-cycle-windo
 
 ## Keyboard Shortcuts
 
-    Move to Right Side      ⌥⌃⌘→
+    Move to Right Side      ⌃⌥⌘→
     Move to Left Side       ⌃⌥⌘←
     Move to Center          ⌃⌥⌘↓
 
