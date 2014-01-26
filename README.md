@@ -3,7 +3,7 @@ Cycle Window Sizes
 
 This [Keyboard Maestro](http://www.keyboardmaestro.com/main/) library includes macros to move the front most window to the left, center, or right of the screen. Instead of using a single size for each position, each macro will cycle between different window sizes when its keyboard shortcut is repeated, as seen below:
 
-![Use one shortcut to cycle through several sizes.](imac-sizes.png)
+![Use one shortcut to cycle through several sizes.](images/imac-sizes.png)
 
 Download
 ==================
