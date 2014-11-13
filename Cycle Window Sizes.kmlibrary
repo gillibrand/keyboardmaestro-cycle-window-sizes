@@ -32,7 +32,7 @@
 							<key>IsActive</key>
 							<true/>
 							<key>IsDisclosed</key>
-							<false/>
+							<true/>
 							<key>MacroActionType</key>
 							<string>Comment</string>
 							<key>Text</key>
@@ -91,7 +91,7 @@ The sizes to rotate windows through can be set in the WinSnapSizes variable belo
 									<key>IsActive</key>
 									<true/>
 									<key>IsDisclosed</key>
-									<false/>
+									<true/>
 									<key>MacroActionType</key>
 									<string>Comment</string>
 									<key>Text</key>
@@ -105,7 +105,7 @@ The sizes to rotate windows through can be set in the WinSnapSizes variable belo
 									<key>IsActive</key>
 									<true/>
 									<key>IsDisclosed</key>
-									<false/>
+									<true/>
 									<key>MacroActionType</key>
 									<string>ExecuteShellScript</string>
 									<key>Path</key>
@@ -178,8 +178,6 @@ except:
 							<true/>
 							<key>MacroActionType</key>
 							<string>SetVariableToCalculation</string>
-							<key>StopOnFailure</key>
-							<false/>
 							<key>Text</key>
 							<string>(SCREEN(0, width) * WinSnapSizes[WinSnapSizeIndex + 1]) - WinSnapGutterSize</string>
 							<key>UseFormat</key>
@@ -191,7 +189,7 @@ except:
 					<key>IsActive</key>
 					<true/>
 					<key>ModificationDate</key>
-					<real>412239470.47191</real>
+					<real>437471427.29566997</real>
 					<key>Name</key>
 					<string>_Get WinSnapWidth</string>
 					<key>Triggers</key>
@@ -230,6 +228,8 @@ except:
 							<string>WinSnapPos</string>
 						</dict>
 						<dict>
+							<key>Asynchronously</key>
+							<false/>
 							<key>Count</key>
 							<integer>1</integer>
 							<key>IsActive</key>
@@ -247,7 +247,7 @@ except:
 							<key>Action</key>
 							<string>MoveAndResize</string>
 							<key>HeightExpression</key>
-							<string>SCREEN(Main,Height)</string>
+							<string>SCREEN(Front,Height)</string>
 							<key>HorizontalExpression</key>
 							<string>0</string>
 							<key>IsActive</key>
@@ -273,7 +273,7 @@ except:
 					<key>IsActive</key>
 					<true/>
 					<key>ModificationDate</key>
-					<real>412239503.60657501</real>
+					<real>437535258.17272198</real>
 					<key>Name</key>
 					<string>Move to Left Side</string>
 					<key>Triggers</key>
@@ -323,6 +323,8 @@ except:
 							<string>WinSnapPos</string>
 						</dict>
 						<dict>
+							<key>Asynchronously</key>
+							<false/>
 							<key>Count</key>
 							<integer>1</integer>
 							<key>IsActive</key>
@@ -340,9 +342,9 @@ except:
 							<key>Action</key>
 							<string>MoveAndResize</string>
 							<key>HeightExpression</key>
-							<string>SCREEN(Main,Height)</string>
+							<string>SCREEN(Front,Height)</string>
 							<key>HorizontalExpression</key>
-							<string>SCREEN(Main,Width) - WinSnapWidth</string>
+							<string>SCREEN(Front, Width) - WinSnapWidth</string>
 							<key>IsActive</key>
 							<true/>
 							<key>IsDisclosed</key>
@@ -366,7 +368,7 @@ except:
 					<key>IsActive</key>
 					<true/>
 					<key>ModificationDate</key>
-					<real>412239499.03847897</real>
+					<real>437536084.88245201</real>
 					<key>Name</key>
 					<string>Move to Right Side</string>
 					<key>Triggers</key>
@@ -416,6 +418,8 @@ except:
 							<string>WinSnapPos</string>
 						</dict>
 						<dict>
+							<key>Asynchronously</key>
+							<false/>
 							<key>Count</key>
 							<integer>1</integer>
 							<key>IsActive</key>
@@ -433,9 +437,9 @@ except:
 							<key>Action</key>
 							<string>MoveAndResize</string>
 							<key>HeightExpression</key>
-							<string>SCREEN(Main,Height)</string>
+							<string>SCREEN(Front,Height)</string>
 							<key>HorizontalExpression</key>
-							<string>(SCREEN(main,width) - WinSnapWidth) / 2</string>
+							<string>(SCREEN(Front,width) - WinSnapWidth) / 2</string>
 							<key>IsActive</key>
 							<true/>
 							<key>IsDisclosed</key>
@@ -447,7 +451,7 @@ except:
 							<key>TargetingType</key>
 							<string>Front</string>
 							<key>VerticalExpression</key>
-							<string>SCREEN(Main,Top)+22</string>
+							<string>SCREEN(Front,Top)+22</string>
 							<key>WidthExpression</key>
 							<string>WinSnapWidth</string>
 							<key>WindowIndexExpression</key>
@@ -459,7 +463,7 @@ except:
 					<key>IsActive</key>
 					<true/>
 					<key>ModificationDate</key>
-					<real>412239479.81572098</real>
+					<real>437536400.116584</real>
 					<key>Name</key>
 					<string>Move to Center</string>
 					<key>Triggers</key>
@@ -486,6 +490,6 @@ except:
 		</dict>
 	</array>
 	<key>UID</key>
-	<string>E1628200-30AC-42BE-9396-9001A340269B</string>
+	<string>80099BA8-913D-4235-B60F-7F3FE95E6536</string>
 </dict>
 </plist>
