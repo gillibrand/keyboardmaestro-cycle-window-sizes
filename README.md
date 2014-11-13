@@ -24,7 +24,7 @@ To add, remove, or adjust the available window sizes see the `_Get WinSnapWidth`
 
 ## Known Problems
 
-- Does not work well with more then one monitor. Windows are always moved to the main monitor even if multiple are attached. (Is there a way to get the _current_ screen in Keyboard Maestro?).
+- Used to not work with multiple monitors properly. Haven't been able to test recently, so not sure if this works or not.
 
 ### Acknowledgments 
 
